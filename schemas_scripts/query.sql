@@ -51,18 +51,19 @@ SELECT
 	dept_name
 FROM employees_db
 WHERE 
-	dept_name='Sales';
+	dept_name ='Sales';
 
 -- 7. List all employees in the Sales and Development departments, 
 -- including their employee number, last name, first name, and department name
 -- Query the employee that working in Sales and Develepment Departments
-SELECT *
-FROM sales_dev
-WHERE emp_no IN (
-    SELECT emp_no
-    FROM sales_dev
-    GROUP BY emp_no
-    HAVING COUNT(distinct dept_name) > 1 );
+SELECT 
+	emp_no,
+	last_name,
+	first_name,
+	dept_name
+FROM employees_db
+WHERE 
+	dept_name IN ('Sales', 'Development');
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 	
 
